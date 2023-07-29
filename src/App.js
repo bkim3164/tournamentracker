@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import knight from './chessknight.png';
+import { useState } from 'react';
 
 function App() {
+  const [id, setID] = useState("");
+
+  function handleChange(event) {
+    setID(event.target.value);
+  }
+  function clickButton(event) {
+    event.preventDefault();
+
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <img className="knight" src={knight} alt="knight pic" />
+      <form>
+        <label>
+          Enter Tournament ID:
+          <input onChange={handleChange} type="text" name="id" />
+        </label>
+        <input onClick={clickButton} className="submit" type="submit" value="Submit" />
+      </form>
     </div>
   );
 }
